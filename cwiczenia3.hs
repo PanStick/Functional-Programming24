@@ -49,9 +49,9 @@ slowaDlugosci a b 0 = [""]
 slowaDlugosci a b x = map (a :) prev ++ map (b :) prev
                         where prev = slowaDlugosci a b (x-1)
 
--- slowaDlugosci2 :: Char -> Char -> Int -> [String]
--- slowaDlugosci2 a b 0 = []
--- slowaDlugosci2 a b x = filter (\n -> length head n == x) (iterate (\n -> map(++[a]) n ++ map(++[b]) n) [[a], [b]])
+-- slowaDlugosci :: Char -> Char -> Int -> [String]
+-- slowaDlugosci a b 0 = []
+-- slowaDlugosci a b x = filter (\n -> length head n == x) (iterate (\n -> map(++[a]) n ++ map(++[b]) n) [[a], [b]])
 
 --zad 6
 quickSort :: (Ord a) => [a] -> [a]
@@ -59,5 +59,16 @@ quickSort [] = []
 quickSort x = let n = head x in
         quickSort (filter (< n) x) ++ filter (==n) x ++ quickSort (filter (> n) x)
 
+--zad7
+funkcjaMap :: (a -> b) -> [a] -> [b]
+funkcjaMap f xs = zipWith (\x y -> (f x)) xs xs
+ 
+funkcjaZip :: [a] -> [b] -> [(a,b)]
+funkcjaZip xs ys = zipWith (\x y -> (x,y)) xs ys
 
---7, 8 todo
+--zad 8
+eratosthenes :: Integer -> [Integer]
+eratosthenes n = eratosthenes' [2 .. n]
+  where
+    eratosthenes' [] = []
+    eratosthenes' (x : xs) = x : eratosthenes' (filter (\y -> y `mod` x /= 0) xs)
