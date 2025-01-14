@@ -1,3 +1,5 @@
 /projekt/*
+/erlang/*
 /haskell/work*
 !/projekt/*Final*
+!/erlang/*erl
