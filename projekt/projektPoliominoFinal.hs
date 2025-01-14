@@ -29,4 +29,4 @@ generatePolyominoes :: Int -> [Polyomino]
 generatePolyominoes x = sort $ map (sort . normalize) (tryAllNeighbours x [(0,0)] [] [])
 
 countPolyominoes :: Int -> Int
-countPolyominoes x = div (length (tryAllNeighbours x [(0,0)] [] [])) x
+countPolyominoes x = div (length $ tryAllNeighbours x [(0,0)] [] []) x

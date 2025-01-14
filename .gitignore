@@ -1,5 +1,5 @@
+/.vscode
 /projekt/*
-/erlang/*
 /haskell/work*
+*beam
 !/projekt/*Final*
-!/erlang/*erl
