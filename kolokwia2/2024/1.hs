@@ -1,12 +1,10 @@
-isVowel :: Char -> Bool
-isVowel c = c `elem` "aeiouyAEIOUY"
 
 countVowels :: String -> Int
-countVowels = length . filter isVowel
+countVowels = length . filter (`elem` "aeiouyAEIOUY")
 
 answerQuestion :: String -> String
 answerQuestion question
-  | even (countVowels question) = "tak"
+  | even $ countVowels question = "tak"
   | otherwise = "nie"
 
 main :: IO ()
